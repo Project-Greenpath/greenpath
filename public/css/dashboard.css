@@ -1,0 +1,6 @@
+.dashboard {}
+
+.dashboard-card {
+    background-color: #ffffff;
+    display: flex;
+}

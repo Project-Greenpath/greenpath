@@ -13,7 +13,7 @@
     --leaf-green-10: #D0EE8D;
     --leaf-green-50: #98B659;
     /* --leaf-green-100: #638127; */
-    --leaf-green-100: #1C2541;
+    --ink-blue: #1C2541;
 }
 
 /* Custom Fonts */
@@ -76,34 +76,52 @@ body {
 }
 
 /* Common Components */
+
+/* Button */
 .cta {
     font-family: "Gilroy", sans-serif;
     color: var(--pastel-light-green);
-    background-color: var(--leaf-green-100);
+    background-color: var(--ink-blue);
     padding: 1rem 2rem;
     font-size: 1.1rem;
     width: fit-content;
+    user-select: none;
+    cursor: pointer;
     border-radius: 1000px;
+    transition: .1s;
+    margin: 0.5rem;
 }
 
-.cta-small {
-    font-family: "Gilroy", sans-serif;
-    color: var(--pastel-light-green);
-    background-color: var(--leaf-green-100);
-    padding: .5rem 1rem;
-    font-size: 1rem;
-    width: fit-content;
-    border-radius: 1000px;
+.cta:hover {
+    box-shadow: var(--pastel-dark-green) 8px 6px;
+}
+
+.cta:active {
+    box-shadow: var(--pastel-dark-green) 4px 3px;
 }
 
 .cta-sec {
     font-family: "Gilroy", sans-serif;
-    color: var(--pastel-light-green);
+    color: var(--leaf-green-50);
     border: var(--leaf-green-50) solid .25rem;
     padding: .75rem 1.75rem;
     font-size: 1.1rem;
     width: fit-content;
     border-radius: 1000px;
+    transition: .1s;
+    user-select: none;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.cta-sec:hover {
+    color: white;
+    background-color: var(--leaf-green-50);
+    box-shadow: var(--pastel-dark-green) 8px 6px;
+}
+
+.cta-sec:active {
+    box-shadow: var(--pastel-dark-green) 4px 3px;
 }
 
 .cta-small {
@@ -165,10 +183,10 @@ nav {
 /* Main */
 main {
     padding-top: 10vh;
-    height: 100vh;
 }
 
 section.landing-hero {
+    height: 100vh;
     display: flex;
     align-items: center;
     height: 100%;
@@ -178,6 +196,7 @@ section.landing-hero {
 .hero-left,
 .hero-right {
     width: 50vw;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,11 +204,12 @@ section.landing-hero {
 
 .hero-heading {
     font-family: "Barista Next", sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
     padding: .5rem 0;
 }
 
 .hero-subheading {
+    font-size: 1.25rem;
     font-family: "Gilroy", sans-serif;
     font-weight: 200;
     padding: 1rem 0;
