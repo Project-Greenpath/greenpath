@@ -23,3 +23,7 @@ Route::get('/welcome', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/listing', function () {
+    return view('listing');
+});
