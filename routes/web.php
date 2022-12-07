@@ -24,12 +24,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/listing', function () {
-    return view('listing');
+Route::get('/listings', function () {
+    return view('listings');
+});
+
+Route::get('/newlisting', function () {
+    return view('newlisting');
 });
 Route::get('/borrow', function () {
     return view('borrow');
 });
 Route::get('/login', function () {
     return view('sign_in');
+});
+Route::get('/sign-up', function () {
+    return view('sign_up');
 });
