@@ -1,0 +1,63 @@
+body {
+    background-image: url("/images/forest-cycle.jpg");
+    background-size: cover;
+
+}
+
+h1 {
+    font-family: "Barista Next", sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    width: 100%;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-group {
+    margin: 3rem 0;
+    background-color: #d6d6d698;
+    padding: 3rem;
+    width: 40%;
+    box-shadow: #4b514bce 4px 4px 20px;
+    border-radius: 1rem;
+    border: 1px solid #ffffff93;
+    backdrop-filter: blur(20px) saturate(125%);
+}
+
+.form-group form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 1.2rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: .7rem;
+    width: 100%;
+    border-radius: 1rem;
+    outline: none;
+    border: 1px #c2c2c2 solid;
+    margin-bottom: 2rem;
+}
+
+input[type="number"] {
+    width: 40%;
+}
+
+input[type="file"],
+input[type="submit"] {
+    padding: 1rem;
+    margin: 0;
+    border-radius: 1rem;
+    border: none;
+}

@@ -10,15 +10,17 @@
   <body>
     <nav>
       <div class="logo">
-        <img
-          src="/images/greenpath-logo-long.svg"
-          alt=""
-          class="logo-img"
-        />
+        <a href="/">
+          <img
+            src="/images/greenpath-logo-long.svg"
+            alt=""
+            class="logo-img"
+          />
+        </a>
       </div>
       <div class="nav-menu">
         <ul class="nav-links">
-          <a href="">
+          <a href="/">
             <li class="nav-item">Home</li>
           </a>
           <a href="">
@@ -30,7 +32,7 @@
           <a href="">
             <li class="nav-item cta-secondary">Sign Up</li>
           </a>
-          <a href="">
+          <a href="/login">
             <li class="nav-item cta-sec">Log In</li>
           </a>
         </ul>

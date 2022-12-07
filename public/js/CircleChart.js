@@ -10,26 +10,27 @@
  * Created: 26.11.14.
  */
 function CircleChart() {
-
     var context = null;
     var canvasWidth = 320;
     var canvasHeight = 320;
     var chartPercent = 34;
-    var lightColor = '#c2d56a';
-    var darkColor = '#8abc4b';
+    var lightColor = "#c2d56a";
+    var darkColor = "#8abc4b";
     var inc = true;
     var mouseX = -10;
     var mouseY = -10;
 
-    window.requestAnimFrame = (function(callback) {
-        return window.requestAnimationFrame ||
+    window.requestAnimFrame = (function (callback) {
+        return (
+            window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimationFrame ||
-            function(callback) {
+            function (callback) {
                 window.setTimeout(callback, 1000 / 60);
-            };
+            }
+        );
     })();
 
     /**
@@ -90,14 +91,18 @@ function CircleChart() {
         context.shadowBlur = 3;
         context.shadowOffsetX = 3;
         context.shadowOffsetY = 3;
-        context.shadowColor = 'grey';
+        context.shadowColor = "grey";
     }
 
     function drawText() {
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-        context.font = 'normal normal 100 40pt Raleway';
-        context.fillText(getPercent() + '%', canvasWidth / 2, canvasHeight / 2);
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.font = "normal normal 100 28pt Gilroy";
+        context.fillText(
+            Math.round((getPercent() / 100) * 15) + "/15 days",
+            canvasWidth / 2,
+            canvasHeight / 2
+        );
     }
 
     /**
@@ -110,7 +115,7 @@ function CircleChart() {
         var x = canvasWidth / 2;
         var y = canvasHeight / 2;
         var startAngle = 1.5 * Math.PI;
-        var stopAngle =  2 * (getPercent()/100) * Math.PI + startAngle;
+        var stopAngle = 2 * (getPercent() / 100) * Math.PI + startAngle;
 
         drawText();
 
@@ -133,25 +138,23 @@ function CircleChart() {
 
         context.beginPath();
         context.arc(mouseX, mouseY, 3, 0, 2 * Math.PI, false);
-        context.fillStyle = 'black';
+        context.fillStyle = "black";
         context.fill();
     }
 
     function animate() {
-        requestAnimFrame(animate);
-        /*
-        if (inc) {
-            setPercent(getPercent() + 1);
-            if (getPercent() > 100) {
-                inc = false;
-            }
-        } else {
-            setPercent(getPercent() - 1);
-            if (getPercent() <= 0) {
-                inc = true;
-            }
-        }
-        */
+        // requestAnimFrame(animate);
+        // if (inc) {
+        //     setPercent(getPercent() + 1);
+        //     if (getPercent() >= 100) {
+        //         inc = false;
+        //     }
+        // } else {
+        //     setPercent(getPercent() - 1);
+        //     if (getPercent() <= 0) {
+        //         inc = true;
+        //     }
+        // }
         draw();
     }
 
@@ -163,8 +166,8 @@ function CircleChart() {
         if (ratio > 1) {
             canvas.width = width * ratio;
             canvas.height = height * ratio;
-            canvas.style.width = width + 'px';
-            canvas.style.height = height + 'px';
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
             context.scale(ratio, ratio);
         }
     }
@@ -175,12 +178,12 @@ function CircleChart() {
     }
 
     function setCallbacks(canvasElement) {
-        canvasElement.addEventListener('mousemove', function (event) {
+        canvasElement.addEventListener("mousemove", function (event) {
             mouseX = event.x - canvasElement.offsetLeft;
             mouseY = event.y - canvasElement.offsetTop;
-            console.log(mouseX + ' ' + mouseY)
+            console.log(mouseX + " " + mouseY);
         });
-        canvasElement.addEventListener('mouseout', function (event) {
+        canvasElement.addEventListener("mouseout", function (event) {
             mouseX = -10;
             mouseY = -10;
         });
@@ -193,13 +196,13 @@ function CircleChart() {
      */
     function init(canvasId, initialPercent) {
         if (initialPercent != null) {
-            setPercent(initialPercent)
+            setPercent(initialPercent);
         }
         var canvasElement = document.getElementById(canvasId);
         setCallbacks(canvasElement);
         canvasElement.width = canvasWidth;
         canvasElement.height = canvasHeight;
-        context = canvasElement.getContext('2d');
+        context = canvasElement.getContext("2d");
         enhanceContext(canvasElement, context);
         animate();
     }
@@ -212,7 +215,6 @@ function CircleChart() {
         getHeight: getHeight,
         getPercent: getPercent,
         setPercent: setPercent,
-        setColors: setColors
-    }
-
+        setColors: setColors,
+    };
 }

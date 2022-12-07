@@ -27,3 +27,9 @@ Route::get('/dashboard', function () {
 Route::get('/listing', function () {
     return view('listing');
 });
+Route::get('/borrow', function () {
+    return view('borrow');
+});
+Route::get('/login', function () {
+    return view('sign_in');
+});
