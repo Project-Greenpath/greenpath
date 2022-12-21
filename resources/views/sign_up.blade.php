@@ -5,8 +5,8 @@
 <section class="login-section">
     <div class="form-group">
         <h1>Sign Up</h1>
-        <form action="" method="post">
-
+        <form action="/sign-up" method="POST">
+            @csrf
             <label for="collegeid">College ID</label>
             <input type="text" name="collegeid" id="collegeid" class="username" placeholder="TVEXXXXXXX">
 

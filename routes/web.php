@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SignUpController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,9 @@ Route::get('/borrow', function () {
 Route::get('/login', function () {
     return view('sign_in');
 });
-Route::get('/sign-up', function () {
-    return view('sign_up');
-});
+// Auth::routes();
+
+// Route::get('sign-up', 'App\Http\Controllers\SignUpController@index')->name('sign-up');
+Route::match (['get', 'post'], 'sign-up', [SignUpController::class, 'index'])->name('sign-up');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
