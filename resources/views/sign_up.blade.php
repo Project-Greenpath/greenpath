@@ -5,6 +5,11 @@
 <section class="login-section">
     <div class="form-group">
         <h1>Sign Up</h1>
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         <form action="/sign-up" method="POST">
             @csrf
             <label for="collegeid">College ID</label>

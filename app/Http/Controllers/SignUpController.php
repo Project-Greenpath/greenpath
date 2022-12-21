@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+
 use Illuminate\Http\Request;
 
 class SignUpController extends Controller
@@ -13,7 +15,22 @@ class SignUpController extends Controller
      */
     public function index(Request $request)
     {
-        error_log(json_encode($request->post()));
+        error_log(sprintf("POST DATA: %s", json_encode($request->post())));
+        if ($request->isMethod('POST')) {
+            $request->validate([
+                'collegeid' => 'required',
+                'full_name' => 'required',
+                'department' => 'required',
+                'yog' => 'required',
+                'phone' => 'required',
+                'email' => 'required|email',
+            ]);
+
+            Student::create($request->all());
+
+            return redirect()->route('sign-up')
+                ->with('success', 'Student created successfully.');
+        }
         return view('sign_up');
     }
     public function signUp(Request $request)
