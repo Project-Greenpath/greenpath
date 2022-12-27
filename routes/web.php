@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\CycleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,13 @@ Route::get('/login', function () {
 Route::match (['get', 'post'], 'sign-up', [SignUpController::class, 'index'])->name('sign-up');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// cycles
+Route::match (['get'], 'cycles', [CycleController::class, 'index'])->name('cycles');
+Route::get('cycles', 'App\Http\Controllers\CycleController@index');
+Route::get('cycles/create', 'App\Http\Controllers\CycleController@create');
+Route::post('cycles', 'App\Http\Controllers\CycleController@create');
+Route::get('cycles/{id}', 'App\Http\Controllers\CycleController@show');
+Route::get('cycles/{id}/edit', 'App\Http\Controllers\CycleController@edit');
+Route::patch('cycles/{id}', 'App\Http\Controllers\CycleController@update');
+Route::delete('cycles/{id}', 'App\Http\Controllers\CycleController@destroy');
