@@ -20,6 +20,7 @@ class SignUpController extends Controller
             $request->validate([
                 'collegeid' => 'required',
                 'full_name' => 'required',
+                'password' => 'required|string|min:8',
                 'department' => 'required',
                 'yog' => 'required',
                 'phone' => 'required',

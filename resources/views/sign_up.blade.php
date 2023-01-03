@@ -18,6 +18,9 @@
             <label for="full_name">Full Name</label>
             <input type="text" name="full_name" id="full_name" class="username" placeholder="John Doe">
 
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="">
+
             <label for="department">Department</label>
             <select name="department" id="department">
                 <option value="cse">Computer Science and Engineering (CSE)</option>
